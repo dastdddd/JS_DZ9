@@ -15,8 +15,8 @@
     <h1 id="h1"></h1>
     <button id="btn1">start</button>
     <hr />
-    <h1 id="h2"></h1>
     <button id="btn2">start</button>
+    <h3 id="h2"></h3>
 
     <script>
       //=================================================
@@ -40,16 +40,17 @@
       const btn2 = document.getElementById("btn2");
 
       const func2 = () => {
-        h2.innerHTML = "Начало работы";
+        h2.innerHTML += "Начало работы  --->";
         setTimeout(() => {
-          h2.innerHTML = "Прошла 1 секунда";
-          const interv = setInterval(() => {
-            h2.innerHTML = "Прошла 2 секунда";
-            setTimeout(() => {
-              h2.innerHTML = "STOP";
-            }, 4000);
-          }, 1000);
+          h2.innerHTML += "Прошла 1 секунда  --->";
         }, 1000);
+        const interval = setInterval(() => {
+          h2.innerHTML += "Прошла 2 секунда  --->";
+        }, 2000);
+        setTimeout(() => {
+          clearInterval(interval);
+          h2.innerHTML += "Прошла 10 секунда";
+        }, 10000);
       };
 
       btn2.addEventListener("click", func2);
